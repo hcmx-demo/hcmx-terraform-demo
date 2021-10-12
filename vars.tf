@@ -1,88 +1,82 @@
 variable "subscription_id" {
+ default = "subscription_id"
   }
+
 variable "client_id" {
+ default = "client_id"
   }
+
 variable "tenant_id" {
+  default = "tenant_id"
   }
+
 variable "client_secret" {
+  default = "client_secret"
   }
+
 variable "password" {
+  description = "The password of the virtual machine."
   }
-variable "admin" {
-  description = "Default user with root access"
- # type = "map"
-  default = {
-    name = "terraform"
-    public_key = ""
+
+variable "type_of_storage" {
+  type   = string
+  description = "The type of Storage used for VM deployment.
   }
+
+variable "vm_name" {
+  description = "Name of the virtual machine"
 }
 
-variable "namespace" {
-  description = "Prefix for resource names"
+variable "domain_name_label" {
+  description = "Prefix for the primary DNS name"
 }
-variable "name" {
-  description = "Name of the service"
+
+variable "resource_group_name" {
+  description = "Name of the resource group"
 }
+
+variable "virtual_network" {
+  description = "Name of the virtual network"
+}
+
 variable "location" {
   description = "Resource location. To see full list run 'az account list-locations'"
 }
-variable "cidr" {
-  default = "10.0.0.0/16"
-}
+
 variable "subnet" {
-  default = "10.0.1.0/24"
+  description = "The name of the Subnet in which the created VM should be added."
 }
+
 variable "vm_size" {
   description = "Size of the vm. To see full list run 'az vm list-sizes'"
 }
-variable "vm_disk_type" {
-  description = "Storage class. Can be Standard_LRS or Premium_LRS"
-  default = "Standard_LRS"
-}
-variable "allocation_method" {
-  description = "Defines how an IP address is assigned. Options are Static or Dynamic."
-  default     = "Dynamic"
-}
-#variable "os" {
-  #description = "Disk image with preinstalled OS"
- # type = "map"
- # default = {
-    #publisher = "OpenLogic"
-    #offer = "CentOS"
-    #sku = "7.4"
-    #os_version = "latest"
-  #}
-#}
 
-variable "username" {
+variable "os_type" {
+  description = "OS Type of the VM. Valid values are - windows, linux"
+}
+
+variable "disk_size" {
+  description = "Size of the disk in GB."
+}
+
+variable "vm_username" {
   description = "The username for the target VM"
   type   = string
-  default = ""
   }
 
 variable "publisher" {
   description = "The Publisher"
   type   = string
-  default = ""
-  }
-
-
-variable "tag1" {
-  type   = string
-  default = ""
   }
 
 variable "offer" {
   type   = string
-  default = ""
   }
 
 variable "sku" {
   type   = string
-  default = ""
   }
 
 variable "os_version" {
    type   = string
-  default = ""
   }
